@@ -18,8 +18,12 @@ export const defaultTheme = {
   },
 
   sizes: {
-    xs: 12,
-    sm: 14,
-    base: 16,
+    xs: '12px',
+    sm: '14px',
+    base: '16px',
+    lg: '20px',
+    xl: '24px',
+    '2xl': '32px',
+    '3xl': '40px',
   },
 }

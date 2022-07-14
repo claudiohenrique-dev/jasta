@@ -1,9 +1,13 @@
-import { Container, Title } from './styles'
+import { NewTaskForm } from '@/components/NewTaskForm'
+
+import { Container, NewTaskContainer, Title } from './styles'
 
 export function Home() {
   return (
     <Container>
-      <Title>Home page</Title>
+      <NewTaskContainer>
+        <NewTaskForm />
+      </NewTaskContainer>
     </Container>
   )
 }
