@@ -16,7 +16,7 @@ export const TaskItemContainer = styled.li`
     align-items: center;
     display: flex;
     gap: 12px;
-    margin: 0;
+    margin: 0 !important;
   }
 `
 
