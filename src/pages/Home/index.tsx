@@ -1,25 +1,26 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
 import { v4 as uuidv4 } from 'uuid'
 import { PlusCircle } from 'phosphor-react'
-
-import { tasks as mockTasks } from '@/constants/tasks'
 
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { TaskItem } from '@/components/TaskItem'
 
 import { HomeContainer, NewTaskForm, TasksContainer, TasksHeader, TasksList } from './styles'
+import { ITask } from '@/components/TaskItem/types'
+
+const LOCAL_STORAGE_KEY = 'todo:savedTasks'
 
 export function Home() {
-  const [tasks, setTasks] = useState(mockTasks)
+  const [tasks, setTasks] = useState<ITask[]>([])
   const [inputValue, setInputValue] = useState('')
 
   const checkedTasks = tasks.filter(task => task.checked).length
 
   function handleDeleteTask(id: string) {
     const tasksWithoutDeletedOne = tasks.filter(task => task.id !== id)
-    setTasks(tasksWithoutDeletedOne)
+    setTasksAndSave(tasksWithoutDeletedOne)
   }
 
   function handleCheckTask(id: string) {
@@ -27,7 +28,7 @@ export function Home() {
       if (task.id === id) return { ...task, checked: !task.checked }
       return task
     })
-    setTasks(tasksWithCheckedOne)
+    setTasksAndSave(tasksWithCheckedOne)
   }
 
   function handleSubmit(event: FormEvent) {
@@ -42,7 +43,7 @@ export function Home() {
       },
     ]
 
-    setTasks(newTasks)
+    setTasksAndSave(newTasks)
 
     setInputValue('')
   }
@@ -50,6 +51,20 @@ export function Home() {
   function onChangeNewTaskText(event: ChangeEvent<HTMLInputElement>) {
     setInputValue(event.target.value)
   }
+
+  function loadSavedTasks() {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if (saved) setTasks(JSON.parse(saved))
+  }
+
+  function setTasksAndSave(newTasks: ITask[]) {
+    setTasks(newTasks)
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks))
+  }
+
+  useEffect(() => {
+    loadSavedTasks()
+  }, [])
 
   return (
     <HomeContainer onSubmit={handleSubmit}>
