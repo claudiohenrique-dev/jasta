@@ -55,3 +55,27 @@ export const TasksHeader = styled.div`
 export const TasksList = styled.div`
   padding-bottom: 4rem;
 `
+
+export const TasksListEmpty = styled.div`
+  align-items: center;
+  background: transparent;
+  border-top: 1px solid ${({ theme }) => theme.colors['gray-400']};
+  display: flex;
+  flex-direction: column;
+  height: 15rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+  width: 100%;
+
+  svg {
+    margin: 0 0 1rem 0;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors['gray-300']};
+  }
+
+  p > span {
+    font-weight: bold;
+  }
+`

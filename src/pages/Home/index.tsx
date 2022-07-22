@@ -1,20 +1,23 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
 import { v4 as uuidv4 } from 'uuid'
-import { PlusCircle } from 'phosphor-react'
+import { useTheme } from 'styled-components'
+import { ClipboardText, PlusCircle } from 'phosphor-react'
 
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { TaskItem } from '@/components/TaskItem'
 
-import { HomeContainer, NewTaskForm, TasksContainer, TasksHeader, TasksList } from './styles'
+import { HomeContainer, NewTaskForm, TasksContainer, TasksHeader, TasksList, TasksListEmpty } from './styles'
 import { ITask } from '@/components/TaskItem/types'
 
-const LOCAL_STORAGE_KEY = 'todo:savedTasks'
+const LOCAL_STORAGE_KEY = 'jasta:savedTasks'
 
 export function Home() {
   const [tasks, setTasks] = useState<ITask[]>([])
   const [inputValue, setInputValue] = useState('')
+
+  const { colors } = useTheme()
 
   const checkedTasks = tasks.filter(task => task.checked).length
 
@@ -90,6 +93,16 @@ export function Home() {
           {tasks.map(task => (
             <TaskItem key={task.id} task={task} onCheck={handleCheckTask} onDelete={handleDeleteTask} />
           ))}
+
+          {!tasks.length && (
+            <TasksListEmpty>
+              <ClipboardText color={colors['gray-300']} size={72} />
+              <p>
+                <span>You don't have any created tasks yet</span>
+              </p>
+              <p>Create tasks and organize your to-do items</p>
+            </TasksListEmpty>
+          )}
         </TasksList>
       </TasksContainer>
     </HomeContainer>
