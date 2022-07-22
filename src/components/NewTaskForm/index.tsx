@@ -9,7 +9,7 @@ export function NewTaskForm() {
   return (
     <Container>
       <Input type='text' placeholder='Add new task' />
-      <Button text='Criar' rightIcon={<PlusCircle size={24} />} />
+      <Button text='Create' rightIcon={<PlusCircle size={24} />} />
     </Container>
   )
 }

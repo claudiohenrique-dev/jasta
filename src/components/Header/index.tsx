@@ -7,6 +7,7 @@ export function Header() {
     <HeaderContainer>
       <TitleContainer>
         <img src={logoImg} />
+
         <h1>
           <span>to</span>
           <span>do</span>

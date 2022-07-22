@@ -1,7 +1,7 @@
-import { InputProps } from './types'
+import { IInput } from './types'
 
 import { InputContainer } from './styles'
 
-export function Input({ ...rest }: InputProps) {
+export function Input({ ...rest }: IInput) {
   return <InputContainer {...rest} />
 }
