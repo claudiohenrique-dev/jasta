@@ -1,13 +1,20 @@
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
+
+import { v4 as uuidv4 } from 'uuid'
+import { PlusCircle } from 'phosphor-react'
 
 import { tasks as mockTasks } from '@/constants/tasks'
-import { TaskItem } from '@/components/TaskItem'
-import { NewTaskForm } from '@/components/NewTaskForm'
 
-import { HomeContainer, NewTaskContainer, TasksContainer, TasksHeader, TasksList } from './styles'
+import { Input } from '@/components/Input'
+import { Button } from '@/components/Button'
+import { TaskItem } from '@/components/TaskItem'
+
+import { HomeContainer, NewTaskForm, TasksContainer, TasksHeader, TasksList } from './styles'
 
 export function Home() {
   const [tasks, setTasks] = useState(mockTasks)
+  const [inputValue, setInputValue] = useState('')
+
   const checkedTasks = tasks.filter(task => task.checked).length
 
   function handleDeleteTask(id: string) {
@@ -23,11 +30,33 @@ export function Home() {
     setTasks(tasksWithCheckedOne)
   }
 
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault()
+
+    const newTasks = [
+      ...tasks,
+      {
+        id: uuidv4(),
+        content: inputValue,
+        checked: false,
+      },
+    ]
+
+    setTasks(newTasks)
+
+    setInputValue('')
+  }
+
+  function onChangeNewTaskText(event: ChangeEvent<HTMLInputElement>) {
+    setInputValue(event.target.value)
+  }
+
   return (
-    <HomeContainer>
-      <NewTaskContainer>
-        <NewTaskForm />
-      </NewTaskContainer>
+    <HomeContainer onSubmit={handleSubmit}>
+      <NewTaskForm>
+        <Input type='text' placeholder='Add new task' onChange={onChangeNewTaskText} value={inputValue} />
+        <Button text='Create' rightIcon={<PlusCircle size={24} />} />
+      </NewTaskForm>
 
       <TasksContainer>
         <TasksHeader>

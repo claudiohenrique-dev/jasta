@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 export const HomeContainer = styled.div``
 
-export const NewTaskContainer = styled.div`
+export const NewTaskForm = styled.form`
+  display: flex;
+  gap: 8px;
   position: relative;
   top: calc(-1 * 3.5rem / 2);
 `
 
 export const TasksContainer = styled.main`
-  /* border: 1px solid white; */
   height: 50vh;
   width: 100%;
 `
