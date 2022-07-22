@@ -8,9 +8,7 @@ export function DefaultLayout() {
   return (
     <LayoutContainer>
       <Header />
-      <div>
-        <Outlet />
-      </div>
+      <Outlet />
     </LayoutContainer>
   )
 }

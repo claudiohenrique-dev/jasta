@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const HomeContainer = styled.div``
+export const HomeContainer = styled.div`
+  margin: 0 auto;
+`
 
 export const NewTaskForm = styled.form`
   display: flex;
@@ -19,6 +21,7 @@ export const TasksHeader = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 2rem 0 1.5rem 0;
 
   span {
     display: flex;
@@ -48,4 +51,6 @@ export const TasksHeader = styled.div`
   }
 `
 
-export const TasksList = styled.div``
+export const TasksList = styled.div`
+  padding-bottom: 4rem;
+`
