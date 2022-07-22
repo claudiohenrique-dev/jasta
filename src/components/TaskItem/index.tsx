@@ -20,7 +20,7 @@ export function TaskItem({ task, onCheck, onDelete }: ITaskItem) {
         <TaskText checked={task.checked}>{task.content}</TaskText>
       </div>
 
-      <DeleteButton onClick={() => onDelete(task.id)}>
+      <DeleteButton onClick={() => onDelete(task.id)} title='Delete task'>
         <TrashIcon size={24} />
       </DeleteButton>
     </TaskItemContainer>

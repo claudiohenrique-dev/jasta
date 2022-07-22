@@ -9,8 +9,7 @@ export function Header() {
         <img src={logoImg} />
 
         <h1>
-          <span>to</span>
-          <span>do</span>
+          just another silly <span>todo</span> app
         </h1>
       </TitleContainer>
     </HeaderContainer>
