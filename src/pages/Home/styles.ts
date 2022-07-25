@@ -13,7 +13,7 @@ export const NewTaskForm = styled.form`
 `
 
 export const TasksContainer = styled.main`
-  height: 50vh;
+  /* height: 50vh; */
   width: 100%;
 `
 

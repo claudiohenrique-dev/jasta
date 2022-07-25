@@ -7,9 +7,9 @@ import { ClipboardText, PlusCircle } from 'phosphor-react'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { TaskItem } from '@/components/TaskItem'
+import { ITask } from '@/components/TaskItem/types'
 
 import { HomeContainer, NewTaskForm, TasksContainer, TasksHeader, TasksList, TasksListEmpty } from './styles'
-import { ITask } from '@/components/TaskItem/types'
 
 const LOCAL_STORAGE_KEY = 'jasta:savedTasks'
 
