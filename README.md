@@ -12,10 +12,10 @@ JASTA (as you can realize) is a todo-list app (yeah great idea, I know) created 
 
 ## FF (Future Features) 🔮
 
-- Responsiveness 📱
-- Edit your tasks (it's not possible yet, my bad 🫤)
-- Login/Auth using [Firebase](https://firebase.google.com/) (currently only saves to localStorage)
-- Internationalization using [react-i18next](https://react.i18next.com/)
+- [x] Responsiveness 📱
+- [ ] Edit your tasks (it's not possible yet, my bad 🫤)
+- [ ] Login/Auth using [Firebase](https://firebase.google.com/) (currently only saves to localStorage)
+- [ ] Internationalization using [react-i18next](https://react.i18next.com/)
 
 ---
 
