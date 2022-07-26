@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <FooterContainer>
       <p>
-        Copyright &copy; {year} – Develop with <Heart color={colors.blue} size={18} weight='fill' /> and React by
+        Copyright &copy; {year} - Develop with <Heart color={colors.blue} size={18} weight='fill' /> and React by
         <a href='https://claudiohenrique.vercel.app'> Cláudio Henrique</a>
       </p>
     </FooterContainer>

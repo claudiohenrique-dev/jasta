@@ -3,6 +3,11 @@ import styled from 'styled-components'
 export const HomeContainer = styled.div`
   margin: 0 auto;
   width: 46rem;
+
+  @media only screen and (max-width: 786px) {
+    padding: 0 1rem;
+    width: 100%;
+  }
 `
 
 export const NewTaskForm = styled.form`
@@ -72,9 +77,10 @@ export const TasksListEmpty = styled.div`
 
   p {
     color: ${({ theme }) => theme.colors['gray-300']};
+    font-weight: bold;
   }
 
-  p > span {
-    font-weight: bold;
+  p:last-child {
+    font-weight: normal;
   }
 `

@@ -90,16 +90,14 @@ export function Home() {
         </TasksHeader>
 
         <TasksList>
-          {tasks.map(task => (
-            <TaskItem key={task.id} task={task} onCheck={handleCheckTask} onDelete={handleDeleteTask} />
-          ))}
-
-          {!tasks.length && (
+          {tasks ? (
+            tasks.map(task => (
+              <TaskItem key={task.id} task={task} onCheck={handleCheckTask} onDelete={handleDeleteTask} />
+            ))
+          ) : (
             <TasksListEmpty>
               <ClipboardText color={colors['gray-300']} size={72} />
-              <p>
-                <span>You don't have any created tasks yet</span>
-              </p>
+              <p>You don't have any created tasks yet</p>
               <p>Create tasks and organize your to-do items</p>
             </TasksListEmpty>
           )}
