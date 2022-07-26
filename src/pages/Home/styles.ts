@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
   margin: 0 auto;
-  max-width: 46rem;
+  width: 46rem;
 `
 
 export const NewTaskForm = styled.form`
@@ -13,7 +13,6 @@ export const NewTaskForm = styled.form`
 `
 
 export const TasksContainer = styled.main`
-  /* height: 50vh; */
   width: 100%;
 `
 
