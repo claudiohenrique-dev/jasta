@@ -90,7 +90,7 @@ export function Home() {
         </TasksHeader>
 
         <TasksList>
-          {tasks ? (
+          {tasks.length ? (
             tasks.map(task => (
               <TaskItem key={task.id} task={task} onCheck={handleCheckTask} onDelete={handleDeleteTask} />
             ))

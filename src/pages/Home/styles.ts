@@ -67,6 +67,7 @@ export const TasksListEmpty = styled.div`
   display: flex;
   flex-direction: column;
   height: 15rem;
+  text-align: center;
   justify-content: center;
   margin: 1.5rem 0;
   width: 100%;
