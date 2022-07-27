@@ -37,6 +37,8 @@ export function Home() {
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
 
+    if (!inputValue.trim()) return
+
     const newTasks = [
       ...tasks,
       {
@@ -52,7 +54,8 @@ export function Home() {
   }
 
   function onChangeNewTaskText(event: ChangeEvent<HTMLInputElement>) {
-    setInputValue(event.target.value)
+    let { value } = event.target
+    setInputValue(value)
   }
 
   function loadSavedTasks() {
@@ -72,7 +75,7 @@ export function Home() {
   return (
     <HomeContainer onSubmit={handleSubmit}>
       <NewTaskForm>
-        <Input type='text' placeholder='Add new task' onChange={onChangeNewTaskText} value={inputValue} />
+        <Input type='text' placeholder='Add new task' onChange={onChangeNewTaskText} value={inputValue} required />
         <Button text='Create' rightIcon={<PlusCircle size={24} />} />
       </NewTaskForm>
 
